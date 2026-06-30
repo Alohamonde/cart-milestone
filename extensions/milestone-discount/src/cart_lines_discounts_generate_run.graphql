@@ -1,0 +1,17 @@
+query CartInput {
+  cart {
+    cost {
+      subtotalAmount {
+        amount
+      }
+    }
+  }
+  discount {
+    discountClasses
+  }
+  shop {
+    metafield(namespace: "$app:cart_milestone", key: "config") {
+      jsonValue
+    }
+  }
+}

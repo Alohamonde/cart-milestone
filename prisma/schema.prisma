@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.sqlite"
+}
+
+model Session {
+  id                  String    @id
+  shop                String
+  state               String
+  isOnline            Boolean   @default(false)
+  scope               String?
+  expires             DateTime?
+  accessToken         String
+  userId              BigInt?
+  firstName           String?
+  lastName            String?
+  email               String?
+  accountOwner        Boolean   @default(false)
+  locale              String?
+  collaborator        Boolean?  @default(false)
+  emailVerified       Boolean?  @default(false)
+  refreshToken        String?
+  refreshTokenExpires DateTime?
+}
+
+model ShopSettings {
+  id                        String   @id @default(cuid())
+  shop                      String   @unique
+  enabled                   Boolean  @default(true)
+  freeShippingThreshold     Float    @default(50)
+  barBgColor                String   @default("#e5e7eb")
+  barFillColor              String   @default("#16a34a")
+  barTextColor              String   @default("#111827")
+  suggestionCollectionId    String   @default("")
+  suggestionCollectionTitle String   @default("")
+  suggestionCollectionHandle String  @default("")
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+}
+
+model MilestoneRule {
+  id              String   @id @default(cuid())
+  shop            String
+  enabled         Boolean  @default(true)
+  thresholdAmount Float
+  rewardType      String   @default("order_discount")
+  rewardLabel     String   @default("满额享折扣")
+  discountPercent Float    @default(5)
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([shop])
+}
+
+model MilestoneEvent {
+  id        String   @id @default(cuid())
+  shop      String
+  ruleId    String?
+  eventType String
+  createdAt DateTime @default(now())
+
+  @@index([shop, eventType])
+}

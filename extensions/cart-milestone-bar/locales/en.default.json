@@ -1,0 +1,9 @@
+{
+  "name": "Cart Milestone Bar",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "在 App 后台「进度条设置」配置免运费门槛与样式；在「阶梯规则」配置金额奖励。"
+    }
+  ]
+}
