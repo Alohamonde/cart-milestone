@@ -1,5 +1,7 @@
 # Cart Milestone
 
+> **产品迁移**：本模块已归入独立产品 [Conversion Pulse](https://github.com/Alohamonde/conversion-pulse)（`apps/cart-milestone`）。本仓库保留作历史源码。
+
 购物车里程碑 Shopify App：**免运费进度条**、**阶梯订单折扣**、**智能凑单推荐**。基于 Remix + Theme App Extension + Shopify Functions，与 Omni Store Toolkit（购前店面）、Gift Auto（购中赠品）、Checkout Pulse（购后追加销售）形成完整转化漏斗。
 
 ![Shopify](https://img.shields.io/badge/Shopify-App-7AB55C?logo=shopify&logoColor=white)
